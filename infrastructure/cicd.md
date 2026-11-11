@@ -2,7 +2,7 @@
 
 Read when designing CI pipelines, shared components or delivery interfaces. Apply [shared/local adoption](../engineering/adoption.md) and preserve explicit operation and publication authority.
 
-Use [Meridian’s qualified identities](https://github.com/d1ys3nk0/meridian/blob/main/README.md#qualified-identities) when choosing the scope of environment, deployment target, and CI tracking keys. Preserve existing input contracts until an explicitly authorized implementation change.
+Use [Meridian’s qualified identities](meridian.md#qualified-identities) when choosing the scope of environment, deployment target, and CI tracking keys. Preserve existing input contracts until an explicitly authorized implementation change.
 
 Task owns executable procedures shared with local development. CI invokes those procedures and owns scheduling, images, dependency preparation, secrets, variables, caches, artifacts and job dependencies. Do not invoke a hook runner in CI. Validate the effective target and policy before credentials or remote effects.
 

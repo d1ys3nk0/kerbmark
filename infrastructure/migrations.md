@@ -2,7 +2,7 @@
 
 Read when designing tool-independent infrastructure convergence, assessment or migrations. For Ansible playbooks and migrations, follow [Armada](https://github.com/d1ys3nk0/armada#migrations). Apply [shared/local adoption](../engineering/adoption.md) and the applicable operation and delivery authority.
 
-Use the [Meridian Framework](https://github.com/d1ys3nk0/meridian/blob/main/README.md) when defining environments, placement, Cell roles or failure domains; concrete targets and supported controller roles remain project-owned.
+Use the [Meridian quick reference](meridian.md) when defining environments, placement, Cell roles or failure domains; concrete targets and supported controller roles remain project-owned.
 
 Separate recurring convergence of desired configuration, explicit dependency updates, read-only assessment and historical migrations. Assessment must not repair, acquire mutation locks or advance applied-state markers. Check mode is a read-only preview only when every invoked operation actually avoids mutation. Validate the effective target and policy before accessing credentials or performing remote effects.
 

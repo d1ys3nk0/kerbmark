@@ -19,7 +19,7 @@ When local examples conflict, preserve subsystem boundaries and use maintained r
 
 ## Infrastructure identity
 
-For infrastructure identity, environment, placement, and deployment guidance, link to the [Meridian Framework](https://github.com/d1ys3nk0/meridian/blob/main/README.md) from workspace documentation and task-specific agent instructions. Keep concrete values, syntax, topology, and exceptions in project-owned guides.
+For infrastructure identity, environment, placement, and deployment guidance, route readers to a local Meridian quick reference. Copy the marked block from the [canonical README](https://github.com/d1ys3nk0/meridian/blob/main/README.md) and record its source commit. Keep concrete values, syntax, topology, and exceptions in project-owned guides.
 
 ## Independent project guidance
 
