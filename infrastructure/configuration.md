@@ -4,9 +4,9 @@ Read when designing configuration ownership, operational identity, capability bo
 
 ## Identity and ownership
 
-Use the [Infrastructure Ontology](ontology.md) for Unit, World, Realm, Space, Area, Cell, Service and availability-zone definitions, qualified identities, deployment relationships and state ownership. Existing `OPS_*` mappings remain project-owned configuration contracts; the ontology introduces no new inputs.
+Use [Meridian’s state and placement model](https://github.com/d1ys3nk0/meridian/blob/main/README.md#state-placement-and-metadata) to assign configuration and resources to the scope that owns them. Map the shared identities to project-owned configuration inputs where needed.
 
-Use the ontology’s [shared-dependency and Space-isolation contract](ontology.md#shared-dependencies-and-space-isolation) for Realm-owned instances, logical data separation, Space-bound processes, lifecycle and recovery boundaries. Concrete dependency configuration and exceptions remain project-owned; adoption does not authorize migrating existing consumers.
+Use [Meridian’s shared dependencies and Space isolation](https://github.com/d1ys3nk0/meridian/blob/main/README.md#shared-dependencies-and-space-isolation) to define logical data boundaries and dependency ownership.
 
 Assign configuration to the owner and scope responsible for its intended behavior, not merely to the widest scope where values happen to match. Document sources, precedence, merge and replacement semantics, and the effective non-secret values or selectors a consumer uses. Preserve whole-value replacement versus deep merge explicitly; no universal merge is implied. Keep concrete topology choices out of generic shared maps and nested conditional branches. Tracked configuration owns non-secret policy and defaults; restricted operator or secret-provider inputs own credentials. Vendor-defined key names retain their vendor contract. Keep secrets distinct from ordinary configuration and respect their access boundaries. Exercise configuration selection and merge logic with synthetic cases under [verification](../engineering/verification.md).
 

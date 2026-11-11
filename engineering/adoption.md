@@ -17,9 +17,9 @@ Automatically correct unambiguous violations of prescriptive local requirements 
 
 When local examples conflict, preserve subsystem boundaries and use maintained requirements and comparable neighboring implementations to resolve applicability. Resolve material conflicts between local requirements, agreed outcomes or technical decisions before dependent changes; follow the applicable project's question policy. Preserve other writers' work, explicit exclusions and external-operation permissions.
 
-## Infrastructure ontology copies
+## Infrastructure identity
 
-Applicable workspaces carry a self-contained, unchanged copy of the [Infrastructure Ontology](../infrastructure/ontology.md), reached through their local documentation index and task-triggered agent guidance for infrastructure identity, environments, placement or deployment work. Keep concrete values, syntax, topology and exceptions in workspace-owned documents linked alongside the copy. Adoption and later copy updates require an explicitly scoped change; do not migrate other workspaces automatically.
+For infrastructure identity, environment, placement, and deployment guidance, link to the [Meridian Framework](https://github.com/d1ys3nk0/meridian/blob/main/README.md) from workspace documentation and task-specific agent instructions. Keep concrete values, syntax, topology, and exceptions in project-owned guides.
 
 ## Independent project guidance
 

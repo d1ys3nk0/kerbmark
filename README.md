@@ -46,7 +46,7 @@ Start with the project's own requirements and established conventions. Use [shar
 
 | When you need to | Read |
 | --- | --- |
-| Define environment identity, deployment placement, availability, or state boundaries | [Infrastructure Ontology](infrastructure/ontology.md) |
+| Define environment identity, deployment placement, availability, or state boundaries | [Meridian Framework](https://github.com/d1ys3nk0/meridian/blob/main/README.md) |
 | Assign configuration ownership, remove aliases, or define feature toggles | [Configuration and operational identity](infrastructure/configuration.md) |
 | Address a local VM, container, or controller endpoint | [Local environment addressing](infrastructure/configuration.md#local-environment-addressing) |
 | Declare or upgrade managed environment dependencies | [Declarative dependencies](infrastructure/dependencies.md) |
