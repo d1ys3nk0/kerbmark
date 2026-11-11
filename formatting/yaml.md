@@ -1,0 +1,13 @@
+# YAML source layout
+
+Read before creating or editing YAML files or templates emitting YAML. Apply [shared/local adoption](../engineering/adoption.md): local requirements and established file/reference conventions take precedence; these shared defaults do not authorize retrofitting existing files.
+
+- When editing existing YAML (`.yml` and `.yaml`), including templates that emit YAML, preserve the file's existing style and layout: indentation, blank lines, comments, key order, quoting, and document markers. Make the smallest possible change; additions and replacements must inherit the surrounding style. Do not restyle existing content to match the fallback rules below unless the user explicitly requests reformatting. Any formatting change required for valid YAML must be limited to the affected content.
+- For a new YAML file, first use a nearby file with a similar purpose as the style reference and inherit its formatting, including indentation and blank-line conventions. Apply the fallback layout rules below only when no suitable existing reference is available; they do not override the style of an existing file or reference.
+- For new YAML documents without an established reference, start with `---` on the first line and an empty second line. Apply this header to existing files when a local requirement prescribes it or an explicit alignment task requires it; otherwise preserve their existing document markers and spacing. Enforce an adopted document-start requirement through the project's linters; limit an authorized formatting correction to that header.
+- Fallback for new files without a reference: use empty lines between semantically distinct groups of top-level variables so Vim paragraph motions (`{` and `}`) can jump between groups. Keep related variables consecutive; do not separate every top-level variable with an empty line. Keep a top-level section-heading comment on its own line, with an empty line before it and between the heading and its settings.
+- Fallback for new files without a reference: do not add blank lines for navigation or between nested fields and list items.
+- Do not compact YAML or round-trip whole files through serializers or formatters that discard existing layout. Respect generated-file ownership and change the owning generator or template instead of editing generated output.
+- Before completing a YAML edit, inspect the diff for unintended formatting changes and remove unrelated changes to indentation, blank lines, and style.
+
+Use [Armada’s Vault guidance](https://github.com/d1ys3nk0/armada#vault) when editing Ansible Vault content.
