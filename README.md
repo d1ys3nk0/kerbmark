@@ -4,6 +4,19 @@ Practical guidance for designing, changing, and operating software. For engineer
 
 Start with the project's own requirements and established conventions. Use [shared and local adoption](engineering/adoption.md) to decide when these guidelines apply. Open the rows relevant to the task and follow further links as needed.
 
+## Use the frameworks together
+
+Start here when setting up a product. Adopt each framework where its scope applies and record the product's choices with the repository that owns them.
+
+| Framework | Owns | Use it when |
+| --- | --- | --- |
+| [Kerbmark](engineering/adoption.md) | Shared engineering defaults for design, verification, CI, and delivery | Choosing conventions and checks for a component or product. |
+| [Umbrella](https://github.com/d1ys3nk0/umbrella#choose-a-workspace-type) | Workspace layout, repository boundaries, and documentation placement | Assembling independent repositories into one product workspace. |
+| [Meridian](infrastructure/meridian.md) | Environment and deployment identity, topology, and resource ownership | Deciding where a product runs and which scope owns its state and dependencies. |
+| [Armada](https://github.com/d1ys3nk0/armada#layer-entrypoints-and-target-selection) | Ansible inventory, layers, variables, roles, and operational entrypoints | Using Ansible to provision and operate infrastructure. |
+
+Follow the [worked product workflow](engineering/product-workflow.md) from a service change through CI, target selection, and an infrastructure preview.
+
 ## Design, implementation, and verification
 
 | When you need to | Read |
