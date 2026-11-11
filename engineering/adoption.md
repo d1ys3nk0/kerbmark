@@ -21,6 +21,28 @@ When local examples conflict, preserve subsystem boundaries and use maintained r
 
 For infrastructure identity, environment, placement, and deployment guidance, route readers to a local Meridian quick reference. Copy the marked block from the [canonical README](https://github.com/d1ys3nk0/meridian/blob/main/README.md) and record its source commit. Keep concrete values, syntax, topology, and exceptions in project-owned guides.
 
+## Reviewed framework baseline
+
+This baseline records reviewed documentation compatibility, not tested runtime integration. The Kerbmark revision containing this record identifies its engineering guidance, Meridian snapshot, and worked product example. Read the other frameworks at the exact revisions below; links to their default branches may show newer guidance outside this baseline.
+
+| Framework | Reviewed commit | Authoritative scope |
+| --- | --- | --- |
+| Umbrella | [`7cac443e85e2aa77f02e4434a8c856328c4f4acc`](https://github.com/d1ys3nk0/umbrella/blob/7cac443e85e2aa77f02e4434a8c856328c4f4acc/README.md) | Workspace layout, repository boundaries, and documentation placement. |
+| Meridian | [`cac3ed6dce070aa159dcf1c0342ea1fad7f065eb`](https://github.com/d1ys3nk0/meridian/blob/cac3ed6dce070aa159dcf1c0342ea1fad7f065eb/README.md) | Runtime identity, placement, and state ownership. |
+| Armada | [`19cdeef4a561bc6ac647a49cf68cfd4357ff086f`](https://github.com/d1ys3nk0/armada/blob/19cdeef4a561bc6ac647a49cf68cfd4357ff086f/README.md) | Ansible inventory, layers, variables, roles, and operations. |
+
+Record the product's selected full framework commits and approved exceptions in its existing engineering documentation, following Umbrella's repository ownership rules. Link to component-owned identity mappings, command contracts, and verification evidence. Record the selected Kerbmark commit as well as the three provider commits; a moving branch name is not a reproducible adoption record. A baseline does not require adopting every framework or override established local contracts.
+
+### Maintaining compatibility
+
+1. Identify the changed contracts and affected consumers. Inspect upstream changes between the adopted and proposed revisions, including changes to identity scope and ownership boundaries.
+2. Select explicit provider commits and refresh copied excerpts from committed source. Compare the Meridian quick-reference block verbatim with its recorded source revision.
+3. Review dependent examples, local links, and cross-framework file and heading targets against the selected revisions. Check separate Cells, multi-Area Cells, partial operation scope, Space isolation, and non-mutating previews where relevant.
+4. Record the reviewed revisions, remaining limitations, and approved local exceptions with their owners. Preserve standalone repository use and distinguish documentation review from runtime acceptance evidence.
+5. Publish provider commits before publishing consumer baseline updates that reference them. Verify that the referenced commits are available, and update only consumers whose adoption is in scope.
+
+Upstream changes alone do not authorize consumer migrations. For an explicitly scoped identity migration, follow [Meridian's migration guidance](https://github.com/d1ys3nk0/meridian/blob/cac3ed6dce070aa159dcf1c0342ea1fad7f065eb/README.md#migrating-area-qualified-cell-identities) and preserve existing state and completion history.
+
 ## Independent project guidance
 
 Keep project entrypoints self-contained: concise task routes, local requirements, and a fallback to comparable existing patterns. Use project-relative links for local guidance so the repository can be used independently. Load shared and project guidance by task.

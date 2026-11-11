@@ -14,21 +14,23 @@ Suppose Core adds a background export worker. In `svc-core`, run the repository�
 
 ## Resolve the infrastructure target
 
-In [Meridian’s identity model](../infrastructure/meridian.md#qualified-identities), Unicorn uses World `uncrn` and Realm `lab`. The `sbx` and `tst` application environments both deploy to `(uncrn, lab, edg, hst)`. The `sbx` environment also deploys to `(uncrn, lab, edg, vgt)`. PostgreSQL is Realm-shared and each Space uses its own logical database. An export file store dedicated to `sbx` serves that Space in both Cells. Unicorn operates and recovers that store at Space scope.
+In [Meridian’s identity model](../infrastructure/meridian.md#qualified-identities), Unicorn uses World `uncrn` and Realm `lab`. The `sbx` and `tst` application environments both deploy to `(uncrn, lab, hst)`. The `sbx` environment also deploys to `(uncrn, lab, vgt)`. PostgreSQL is Realm-shared and each Space uses its own logical database. An export file store dedicated to `sbx` serves that Space in both Cells. Unicorn operates and recovers that store at Space scope.
 
 The product’s integration procedure links to the operator guide in `iac-ansible`, which documents the project’s implementation of [Armada’s target mapping](https://github.com/d1ys3nk0/armada#mapping-meridian-identities-to-ansible-targets). Before rolling out the worker, an operator can preview convergence of its host prerequisites from that repository using the example command.
 
 ```sh
-task play:setup:check -- uncrn lab edg hst app
+task play:setup:check -- uncrn lab hst app
 ```
 
-In this example the first four arguments select the Cell and `app` selects the layer. The dispatcher resolves that combination to `inventories/lab-edg/hosts.yml`, `playbooks/app/setup.yml`, and the `hst_app` inventory host group. It validates the combination and the host selection before accessing credentials. This is a Cell-level infrastructure preview. Installing the worker for `sbx` is a separate deployment operation whose selection also includes the Space and the release artifact.
+In this example the first three arguments select the Cell and `app` selects the layer. Placement configuration associates `hst` with Area `edg`. The dispatcher resolves that combination to `inventories/lab-edg/hosts.yml`, `playbooks/app/setup.yml`, and the `hst_app` inventory host group. It validates the combination and the host selection before accessing credentials. This is a Cell-level infrastructure preview. Installing the worker for `sbx` is a separate deployment operation whose selection also includes the Space and the release artifact.
 
 ## Check the boundaries
 
 | Scenario | Expected result |
 | --- | --- |
-| A second Area defines its own `hst` Cell. | The qualified `uncrn lab edg hst` selector still resolves only to the Edge installation. |
+| A separate installation is added in another Area of `(uncrn, lab)`. | It gets a distinct Cell slug, such as `hst-remote`; the selector `uncrn lab hst` still identifies only the original Cell. |
+| Cell `(uncrn, lab, k8s)` spans Areas `east` and `west`. | Both Areas belong to one Cell and each Space has one logical deployment in that Cell. Whole-Cell operations account for affected hosts in both Areas. |
+| An operator selects only the `east` hosts of that multi-Area Cell. | Locks coordinate with overlapping whole-Cell operations, and partial success cannot mark a whole-Cell migration complete. |
 | An operator resets `tst`. | The reset clears only `tst` resources. The `sbx` database and export files survive, and the shared PostgreSQL service stays up. |
 | `sbx` runs in both Cells. | Both placements reach the same Space-owned export file store through the product’s documented access and recovery contract. |
 | A pre-convergence migration would clean up a historical resource after cutover. | The preview writes no completion record and takes no mutation lock. If a live migration run confirms the cutover is still pending, the migration reports deferred, stays pending, and is retried on the next eligible run. |

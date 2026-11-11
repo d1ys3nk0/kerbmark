@@ -15,7 +15,7 @@ Start here when setting up a product. Adopt each framework where its scope appli
 | [Meridian](infrastructure/meridian.md) | Environment and deployment identity, topology, and resource ownership | Deciding where a product runs and which scope owns its state and dependencies. |
 | [Armada](https://github.com/d1ys3nk0/armada#layer-entrypoints-and-target-selection) | Ansible inventory, layers, variables, roles, and operational entrypoints | Using Ansible to provision and operate infrastructure. |
 
-Follow the [worked product workflow](engineering/product-workflow.md) from a service change through CI, target selection, and an infrastructure preview.
+Use the [reviewed framework baseline](engineering/adoption.md#reviewed-framework-baseline) to select compatible documentation revisions and maintain adoption records. Follow the [worked product workflow](engineering/product-workflow.md) from a service change through CI, target selection, and an infrastructure preview.
 
 ## Design, implementation, and verification
 
